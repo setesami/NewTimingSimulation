@@ -65,7 +65,6 @@
       <rParent name="CTPPS_Diamond_Main_Box"/>
       <rChild name="CTPPS_UFSD_Plane4:CTPPS_UFSD_Plane"/>
       <Translation y="0*cm" x="[Shift_dx]-(4*[CTPPS_Diamond_Parameters:Diamond_dx]-[CTPPS_UFSD_Parameters:UFSD_dx])/2" z="([CTPPS_Diamond_Parameters:Plane_dz]+[CTPPS_Diamond_Parameters:Plane_gap])*3/2"/>
-      <rRotation name="CTPPS_Diamond_Transformations:planes_x_rotation"/>
     </PosPart>
   </PosPartSection>
 
