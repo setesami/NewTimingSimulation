@@ -8,7 +8,7 @@
 CTPPS standalone (with ParticleGun)
 - cmsRun run_only_CTPPS_cfg_DIG_.py
 - cmsRun step2_DIGI_DIGI2RAW.py
-- cmsRun step25_RAW2DIGI.py
+- cmsRun step3_RAW2DIGI_RECO.py
 
 CMS FullSimulation (with ExHuME) 
 - cmsRun GluGluTo2Jets_M_300_2000_13TeV_exhume_cff_py_GEN_SIM.py
