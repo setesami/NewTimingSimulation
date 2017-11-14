@@ -87,8 +87,6 @@ void CTPPSPixelDigiToRaw::produce( edm::Event& ev,
     }
     fedIds_ = mapping->fedIds();
   }
-  //debug = edm::MessageDrop::instance()->debugEnabled;
-
 
   CTPPSPixelDataFormatter formatter(mapping->ROCMapping);
 
@@ -96,20 +94,15 @@ void CTPPSPixelDigiToRaw::produce( edm::Event& ev,
   auto buffers = std::make_unique<FEDRawDataCollection>();
 
   // convert data to raw
-  //if(digis.size() != 0 )
 
   formatter.formatRawData( ev.id().event(), rawdata, digis, iDdet2fed_);
-  bool data_exist = false; 
+  
   // pack raw data into collection
   for (auto it = fedIds_.begin(); it != fedIds_.end(); it++) { 
     FEDRawData& fedRawData = buffers->FEDData( *it );
     CTPPSPixelDataFormatter::RawData::iterator fedbuffer = rawdata.find( *it );
     if( fedbuffer != rawdata.end() ) fedRawData = fedbuffer->second;
-
-    int nWords = fedRawData.size()/sizeof(Word64);
-    if (nWords!=0) data_exist = true; 
   }
-  if(data_exist) { 
 	allWordCounter += formatter.nWords();
 
 	if (debug) LogDebug("CTPPSPixelDigiToRaw") 
@@ -118,5 +111,4 @@ void CTPPSPixelDigiToRaw::produce( edm::Event& ev,
 	        <<"  all: "<< allDigiCounter <<"/"<<allWordCounter;
 
 	ev.put(std::move(buffers));
-  }
 }
