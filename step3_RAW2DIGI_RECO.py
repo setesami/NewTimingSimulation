@@ -11,7 +11,6 @@ process = cms.Process('RAW2DIGIRECO', eras.Run2_25ns)
 process.load('Configuration.StandardSequences.Services_cff')
 process.load('FWCore.MessageService.MessageLogger_cfi')
 process.load("Configuration.EventContent.EventContent_cff")
-#process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
 process.load('Configuration.StandardSequences.MagneticField_cff')
 process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
@@ -48,8 +47,6 @@ process.options = cms.untracked.PSet(
 process.output = cms.OutputModule("PoolOutputModule",
     fileName = cms.untracked.string('step3_RAW2DIGI_RECO_ctppsgeo_100k.root'),
     outputCommands = cms.untracked.vstring("drop *","keep PSimHits*_*_*_*","keep CTPPS*_*_*_*","keep *_RPix*_*_*")
-
-#    outputCommands = process.RECOSIMEventContent.outputCommands+["keep CTPPS_*_*_*","keep PSimHits_*_*_*"]
 )
 
 
@@ -58,10 +55,6 @@ process.output = cms.OutputModule("PoolOutputModule",
 from Configuration.AlCa.GlobalTag import GlobalTag
 process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_hlt_relval', '')
 
-#from Geometry.VeryForwardGeometry.geometryRP_cfi import *   
-from Configuration.Geometry.geometry_CTPPS_cfi import XMLIdealGeometryESSource_CTPPS
-process.XMLIdealGeometryESSource = XMLIdealGeometryESSource_CTPPS.clone()
- 
 from RecoCTPPS.PixelLocal.ctppsPixelLocalReconstruction_cff import *
 process.load("RecoCTPPS.PixelLocal.ctppsPixelLocalReconstruction_cff")
 

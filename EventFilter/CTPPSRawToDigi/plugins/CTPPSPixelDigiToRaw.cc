@@ -94,7 +94,6 @@ void CTPPSPixelDigiToRaw::produce( edm::Event& ev,
   auto buffers = std::make_unique<FEDRawDataCollection>();
 
   // convert data to raw
-
   formatter.formatRawData( ev.id().event(), rawdata, digis, iDdet2fed_);
   
   // pack raw data into collection

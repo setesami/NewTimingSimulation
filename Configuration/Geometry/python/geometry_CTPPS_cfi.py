@@ -4,7 +4,7 @@ import FWCore.ParameterSet.Config as cms
 totemGeomXMLFiles = cms.vstring(
 	'Geometry/CMSCommonData/data/materials.xml',
         'Geometry/CMSCommonData/data/rotations.xml', 
-    	'Geometry/CMSCommonData/data/extend/cmsextent.xml',
+      	'Geometry/CMSCommonData/data/extend/cmsextent.xml',
         'Geometry/CMSCommonData/data/cms/2017/v1/cms.xml', 
         'Geometry/CMSCommonData/data/beampipe/2017/v1/beampipe.xml', 
         'Geometry/CMSCommonData/data/cmsBeam.xml', 
@@ -75,8 +75,8 @@ totemGeomXMLFiles = cms.vstring(
         'Geometry/VeryForwardData/data/CTPPS_210_Right_Station.xml',
         'Geometry/VeryForwardData/data/CTPPS_210_Left_Station.xml',
         'Geometry/VeryForwardData/data/CTPPS_Stations_Assembly.xml',
-        #'Geometry/VeryForwardData/data/RP_Sensitive_Dets.xml',
-        'Geometry/VeryForwardData/data/CTPPS_Cuts_Per_Region.xml'
+        'Geometry/VeryForwardData/data/CTPPS_Cuts_Per_Region.xml',
+        'Geometry/VeryForwardData/data/CTPPS_Param_Beam_Region.xml',
 ) 
 
         # diamond files
