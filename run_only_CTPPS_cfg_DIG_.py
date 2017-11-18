@@ -1,7 +1,6 @@
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.StandardSequences.Eras import eras
-
 process = cms.Process('CTPPS2',eras.Run2_25ns)
 
 # import of standard configurations
@@ -80,7 +79,7 @@ process.generator = cms.EDProducer("RandomtXiGunProducer",
 
 process.source = cms.Source("EmptySource",
         firstRun = cms.untracked.uint32(294700),
-        numberEventsInRun = cms.untracked.uint32(100000),
+        numberEventsInRun = cms.untracked.uint32(100),
 )
 
 process.ProductionFilterSequence = cms.Sequence(process.generator)

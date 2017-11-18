@@ -5,8 +5,7 @@
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.StandardSequences.Eras import eras
-
-process = cms.Process('DIGI2RAW',eras.Run2_2017)
+process = cms.Process('CTPPS2',eras.Run2_25ns)
 
 # import of standard configurations
 process.load('Configuration.StandardSequences.Services_cff')
@@ -87,7 +86,7 @@ process.load("SimCTPPS.CTPPSPixelDigiProducer.RPixDetConf_cfi")
 
 # Other statements
 from Configuration.AlCa.GlobalTag import GlobalTag
-process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:phase1_2017_realistic', '')
+process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_hlt_relval', '')
 
 # Path and EndPath definitions
 process.mixedigi_step = cms.Path(process.mix*process.RPixDetDigitizer)
