@@ -2,7 +2,7 @@ import FWCore.ParameterSet.Config as cms
 
 from Configuration.StandardSequences.Eras import eras
 
-process = cms.Process('CTPPS',eras.Run2_2017)
+process = cms.Process('CTPPS2',eras.Run2_25ns)
 
 # import of standard configurations
 process.load('Configuration.StandardSequences.Services_cff')
@@ -18,13 +18,9 @@ process.load('Configuration.StandardSequences.SimIdeal_cff')
 process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 ############### using only CTPPS geometry 
-
 from Configuration.Geometry.geometry_CTPPS_cfi import XMLIdealGeometryESSource_CTPPS
-
 process.XMLIdealGeometryESSource = XMLIdealGeometryESSource_CTPPS.clone()
 
-
-#process.load("Configuration.Geometry.geometry_CTPPS_cfi")
 ##########SimTransport###########
 process.load('SimTransport.HectorProducer.HectorTransportCTPPS_cfi')
 
@@ -48,11 +44,11 @@ process.RandomNumberGeneratorService.VtxSmeared.initialSeed = 123456789
 process.RandomNumberGeneratorService.RPixDetDigitizer = cms.PSet(initialSeed =cms.untracked.uint32(137137))
 
 process.maxEvents = cms.untracked.PSet(
-        input = cms.untracked.int32(100)
+        input = cms.untracked.int32(1000)
         )
 
 from Configuration.AlCa.GlobalTag import GlobalTag
-process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:phase1_2017_realistic', '')
+process.GlobalTag = GlobalTag(process.GlobalTag, 'auto:run2_hlt_relval', '')
 process.load('PhysicsTools.HepMCCandAlgos.genParticles_cfi')
 
 import math
@@ -79,17 +75,18 @@ process.generator = cms.EDProducer("RandomtXiGunProducer",
         psethack = cms.string('single protons'),
         FireBackward = cms.bool(True),
         FireForward  = cms.bool(True),
-        firstRun = cms.untracked.uint32(1)
+        firstRun = cms.untracked.uint32(1),
         )
 
-process.source = cms.Source("EmptySource")
+process.source = cms.Source("EmptySource",
+        firstRun = cms.untracked.uint32(294700),
+        numberEventsInRun = cms.untracked.uint32(100000),
+)
 
-#process.ProductionFilterSequence = cms.Sequence(process.generator*process.VtxSmeared)
 process.ProductionFilterSequence = cms.Sequence(process.generator)
 
 ############
 process.o1 = cms.OutputModule("PoolOutputModule",
-#        process.FEVTSIMEventContent,
         outputCommands = cms.untracked.vstring('keep *'),
         fileName = cms.untracked.string('simevent_CTPPS_DIG.root')
         )
@@ -100,9 +97,6 @@ process.common_maximum_timex = cms.PSet( # need to be localy redefined
         MaxTrackTimes = cms.vdouble(10000.0),  # need to be localy redefined
         DeadRegions = cms.vstring()
         )
-
-
-
 process.generation_step = cms.Path(process.pgen)
 process.simulation_step = cms.Path(process.psim)
 process.g4Simhits_step = cms.Path(process.g4SimHits)

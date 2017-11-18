@@ -31,7 +31,7 @@ process.source = cms.Source("EmptyIOVSource",
 
 # Input source
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring('file:step2_DIGI_DIGI2RAW_100k.root'),
+    fileNames = cms.untracked.vstring('file:step2_DIGI_DIGI2RAW.root'),
     secondaryFileNames = cms.untracked.vstring()
 )
 
@@ -45,7 +45,7 @@ process.options = cms.untracked.PSet(
 # Output definition
 
 process.output = cms.OutputModule("PoolOutputModule",
-    fileName = cms.untracked.string('step3_RAW2DIGI_RECO_ctppsgeo_100k.root'),
+    fileName = cms.untracked.string('step3_RAW2DIGI_RECO.root'),
     outputCommands = cms.untracked.vstring("drop *","keep PSimHits*_*_*_*","keep CTPPS*_*_*_*","keep *_RPix*_*_*")
 )
 
