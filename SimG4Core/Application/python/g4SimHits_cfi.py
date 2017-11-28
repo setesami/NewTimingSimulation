@@ -482,7 +482,7 @@ g4SimHits = cms.EDProducer("OscarMTProducer",
    CTPPSSD = cms.PSet(
        Verbosity = cms.untracked.int32(1)
     ),
-    CTPPS_Timing_SD = cms.PSet(
+    CTPPS_Diamond_SD = cms.PSet(
        Verbosity = cms.int32(1)
     )
 )

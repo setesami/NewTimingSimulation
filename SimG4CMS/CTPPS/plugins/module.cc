@@ -1,5 +1,5 @@
 #include "SimG4CMS/CTPPS/interface/CTPPSSD.h"
-#include "SimG4CMS/CTPPS/interface/CTPPS_Timing_SD.h"
+#include "SimG4CMS/CTPPS/interface/CTPPS_Diamond_SD.h"
 
 
 #include "SimG4Core/SensitiveDetector/interface/SensitiveDetectorPluginFactory.h"
@@ -10,8 +10,8 @@
 typedef CTPPSSD CTPPSSensitiveDetector;
 DEFINE_SENSITIVEDETECTOR(CTPPSSensitiveDetector);
 
-typedef CTPPS_Timing_SD CTPPSTimingSensitiveDetector;
-DEFINE_SENSITIVEDETECTOR(CTPPSTimingSensitiveDetector);
+typedef CTPPS_Diamond_SD CTPPSDiamondSensitiveDetector;
+DEFINE_SENSITIVEDETECTOR(CTPPSDiamondSensitiveDetector);
 
 
 
