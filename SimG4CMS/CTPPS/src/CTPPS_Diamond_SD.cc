@@ -91,11 +91,13 @@ CTPPS_Diamond_SD::initRun();
   {
 
     numberingScheme = dynamic_cast<CTPPSVDetectorOrganization*>(new CTPPSDiamondNumberingScheme(3));
-    //std::cout<<"find PPSTimingHits as name "<<std::endl;
+    std::cout<<"find PPSTimingHits as name "<<std::endl;
   }
   else 
   {
     edm::LogWarning("CTPPS_Diamond") << "CTPPS_Diamond_SD: ReadoutName not supported\n";
+    std::cout<<"CTPPS_Diamond_SD: ReadoutName not supported\n"<<std::endl;
+
   }
   
   edm::LogInfo("CTPPS_Diamond") << "CTPPS_Diamond_SD: Instantiation completed";
@@ -170,18 +172,18 @@ G4bool CTPPS_Diamond_SD::ProcessHits(G4Step * aStep, G4TouchableHistory * )
 {
   if (aStep == NULL)
   {	    
-    //std::cout<<"CTPPS_TIMING : There is no hit to process"<<std::endl<<std::endl;
+    std::cout<<"CTPPS_TIMING : There is no hit to process"<<std::endl<<std::endl;
     return true;
   }
   else
   {
  
-    //std::cout
-    // << "*******************************************************\n"
-    // << "*                                                     *\n"
-    // << "* PPS Diamond Hit initialized  with name " << name << "\n" 
-    // << "*                                                     *\n" 
-    // << "*******************************************************" << std::endl;
+    std::cout
+     << "*******************************************************\n"
+     << "*                                                     *\n"
+     << "* PPS Diamond Hit initialized  with name " << name << "\n" 
+     << "*                                                     *\n" 
+     << "*******************************************************" << std::endl;
 
 
 
@@ -189,7 +191,7 @@ G4bool CTPPS_Diamond_SD::ProcessHits(G4Step * aStep, G4TouchableHistory * )
  
     if(theTrack->GetDefinition()->GetPDGEncoding()==2212)  
       {
-	//Print_Hit_Info();
+	Print_Hit_Info();
 	//ImportInfotoHit();    //in addtion to import info to hit it STORE hit as well
 	std::cout<<("CTPPS_Diamond")<<"New hit created"<<std::endl;
 

@@ -204,7 +204,7 @@
             <rRotation name="RP_Transformations:RP_180_z_180_y_rot"/>
             <Translation x="0*mm" y="-[RP_Dist_Beam_Cent:RP_220_Right_Det_Dist_5]-[RP_Box:RP_Box_primary_vacuum_y]/2" z="-([RP_220_Right_Sec_Vert_z]-[RP_220_Right_Station_Length]/2)"/>
         </PosPart>
-        <PosPart copyNumber="126">
+        <PosPart copyNumber="116">
             <rParent name="RP_220_Right_Station_Vacuum_5"/>
             <rChild name="CTPPS_Timing_Horizontal_Pot:Primary_Vacuum"/>
             <rRotation name="rotations:90YX"/>

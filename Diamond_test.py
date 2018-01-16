@@ -128,8 +128,8 @@ process.generator = cms.EDFilter("ExhumeGeneratorFilter",
 
 process.ProductionFilterSequence = cms.Sequence(process.generator)
 #process.load("SimCTPPS.CTPPSPixelDigiProducer.RPixDetConf_cfi")
-process.load("Configuration.Geometry.geometry_CTPPS_cfi")
-
+#process.load("Configuration.Geometry.geometry_CTPPS_cfi")
+process.load("Configuration.Geometry.cmsExtendedGeometry2017dev_veryforward_RP_CTPPS_XML_cfi")
 # Path and EndPath definitions
 process.generation_step = cms.Path(process.pgen)
 process.simulation_step = cms.Path(process.psim)
